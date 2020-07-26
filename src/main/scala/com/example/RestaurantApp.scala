@@ -19,7 +19,7 @@ object RestaurantApp {
     protected def createRestaurant():ActorRef = system.actorOf(Restaurant.props(15),"restaurant")
 
     def run():Unit = {
-      createCustomer(18, Hamburger)
+      createCustomer(20, Hamburger)
       Await.ready(system.whenTerminated, Duration.Inf)
       system.terminate()
     }
