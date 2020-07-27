@@ -15,8 +15,9 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka"       %% "akka-slf4j"                 % akkaV,
   "ch.qos.logback"           % "logback-classic"            % logbackV,
   "com.typesafe.akka"       %% "akka-testkit"               % akkaV % "test",
-  "org.scalatest"           %% "scalatest"                  % scalaTestV,
-
+  "org.scalatest"           %% "scalatest"                  % scalaTestV
+  /*
   "io.kamon" %% "kamon-bundle" % "2.1.4",
   "io.kamon" %% "kamon-apm-reporter" % "2.1.4"
+   */
 )
