@@ -3,6 +3,7 @@ package com.example
 import akka.actor.{ActorRef, ActorSystem}
 import akka.event.Logging
 import com.example.Food._
+import kamon.Kamon
 
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration
@@ -19,7 +20,7 @@ object RestaurantApp {
     protected def createRestaurant():ActorRef = system.actorOf(Restaurant.props(15),"restaurant")
 
     def run():Unit = {
-      createCustomer(20, Hamburger)
+      createCustomer(5, Hamburger)
       Await.ready(system.whenTerminated, Duration.Inf)
       system.terminate()
     }
@@ -33,6 +34,7 @@ object RestaurantApp {
   }
 
   def main(args: Array[String]): Unit = {
+    Kamon.init()
     val system = ActorSystem("system")
     val application = new RestaurantApp(system)
     application.run()

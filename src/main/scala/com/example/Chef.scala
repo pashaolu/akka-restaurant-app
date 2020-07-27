@@ -27,10 +27,11 @@ class Chef(workDuration:FiniteDuration) extends Actor with ActorLogging with Tim
 
   def prepareFood(food: Food) = {
     //simulate failure in food preparation
-    if (Random.nextInt(100) > 80)
+    if (Random.nextInt(100) < 10)
       food
     else
       Food.anyOtherFood(food)
+      food
   }
 
 
